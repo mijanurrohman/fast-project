@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>clock</title>
+</head>
+
+<style>
+   div#clock {
+      background: blue;
+      border: 1px solid pink;
+      border-radius: 2px solid black;
+      height: 70px;
+      width: 200px;
+      position: relative;
+   }
+   div#clock .h1{
+      font-size: 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgb(226, 221, 224);
+      text-align: center;
+      margin: auto;
+      padding: auto;
+      margin-top: 15px;
+      margin-left: 30px;
+      position: absolute;
+   }
+</style>
+<body>
+
+   <div id="clock">
+      <h1 class="h1"></h1>
+   </div>
+     <script>
+     
+       function time(){
+
+           var mydate=new Date();
+           var hour=mydate.getHours();
+           var min=mydate.getMinutes();
+           var sec=mydate.getSeconds();
+
+
+            if(hour=="12"){
+             var hr=12;
+            } else if(hour=="24"){
+               var hr=0;
+            }
+            else{
+              var hr=hour%12;
+            }
+
+           // if(hour<10){
+              // var hr="0"+hour;
+            //}
+
+            //if(min<10){
+               //var min="0"+min;
+            //}
+              
+            //if(sec<10){
+               //var hr="0"+sec;
+            //}
+
+            var ampm=hour>12?"AM":"PM";
+           var timed=hr+":"+min+":"+sec+ampm;
+           document.querySelector(".h1").innerText=timed;
+            
+
+          
+       }
+       setInterval(time,1000);
+      
+
+      
+
+     </script>
+</body>
+</html>
